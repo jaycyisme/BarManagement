@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bar Management", "Bar Management\Bar Management.csproj", "{E420E856-517A-4818-A047-82B0446616A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E420E856-517A-4818-A047-82B0446616A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E420E856-517A-4818-A047-82B0446616A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E420E856-517A-4818-A047-82B0446616A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E420E856-517A-4818-A047-82B0446616A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF4F26E4-90FE-4AD7-92EE-C2E03197D8A7}
+	EndGlobalSection
+EndGlobal
