@@ -16,5 +16,9 @@ namespace Bar_Management.AccountForm
         {
             InitializeComponent();
         }
+
+        private void Account_Load(object sender, EventArgs e) {
+
+        }
     }
 }
