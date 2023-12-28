@@ -27,7 +27,7 @@ namespace Bar_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
