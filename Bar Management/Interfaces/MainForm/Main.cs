@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bar_Management.OrderHistoryForm;
 using Bar_Management.AccountForm;
+using Bar_Management.Interfaces.WarehouseForm;
 
 namespace Bar_Management.MainForm
 {
@@ -83,6 +84,11 @@ namespace Bar_Management.MainForm
         private void btnAccount_Click(object sender, EventArgs e)
         {
             addControls(new Account());
+        }
+
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            addControls(new Warehouse());
         }
     }
 }
