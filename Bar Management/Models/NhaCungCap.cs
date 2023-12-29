@@ -24,7 +24,8 @@ namespace Bar_Management.Models {
 
         [Required]
         [EmailAddress]
-        [Index(IsUnique = true)]
         public string Email { get; set; }
+        public IEnumerable<TonKho> TonKhos{ get; set; }
+
     }
 }

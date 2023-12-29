@@ -20,5 +20,7 @@ namespace Bar_Management.Models {
 
         [DefaultValue(0)]
         public decimal GiaBan { get; set; }
+        public IEnumerable<TonKho> TonKhos { get; set; }
+
     }
 }

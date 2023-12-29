@@ -163,8 +163,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\HoaDonDB.cs" />
     <Compile Include="DAO\AppDbContext.cs" />
+    <Compile Include="DAO\GenericRepository.cs" />
+    <Compile Include="DAO\IGenericRepository.cs" />
+    <Compile Include="DAO\Result.cs" />
     <Compile Include="Interfaces\AccountForm\Account.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,12 +269,27 @@
     <Compile Include="Interfaces\OrderHistoryForm\OrderHistory.Designer.cs">
       <DependentUpon>OrderHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20231228103350_initial.cs" />
-    <Compile Include="Migrations\20231228103350_initial.designer.cs">
-      <DependentUpon>20231228103350_initial.cs</DependentUpon>
+    <Compile Include="Migrations\20231229154416_initial.cs" />
+    <Compile Include="Migrations\20231229154416_initial.designer.cs">
+      <DependentUpon>20231229154416_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\CongThuc.cs" />
+    <Compile Include="Models\DatBanTruoc.cs" />
+    <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\LoaiMonAn.cs" />
+    <Compile Include="Models\MonAn.cs" />
+    <Compile Include="Models\NguyenLieu.cs" />
+    <Compile Include="Models\NhaCungCap.cs" />
+    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\SuKien.cs" />
+    <Compile Include="Models\TaiKhoan.cs" />
+    <Compile Include="Models\TonKho.cs" />
+    <Compile Include="Models\TrangThaiBan.cs" />
     <Compile Include="Models\TrangThaiTonKho.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -452,6 +469,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLogic\" />
+    <Folder Include="Tool\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

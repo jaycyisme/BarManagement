@@ -12,5 +12,6 @@ namespace Bar_Management.Models {
 
         [MaxLength(20)]
         public string NgonNgu { get; set; }
+        public IEnumerable<TaiKhoan> TaiKhoans { get; set; }
     }
 }

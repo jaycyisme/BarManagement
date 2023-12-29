@@ -13,5 +13,6 @@ namespace Bar_Management.Models {
         [Required]
         [MaxLength(50)]
         public string Ten { get; set; }
+        public IEnumerable<TonKho> TonKhos { get; set; }
     }
 }

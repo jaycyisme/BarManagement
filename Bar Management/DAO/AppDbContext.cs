@@ -32,7 +32,7 @@ namespace Bar_Management.DAO {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["cnn"].ConnectionString);
-            optionsBuilder.UseSqlServer("server=.\\DONGSQLSERVER; database=QuanLyBarMot; trusted_connection=true; trustservercertificate=true; MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("server=.\\DONGSQLSERVER; database=QuanLyBarHai; trusted_connection=true; trustservercertificate=true; MultipleActiveResultSets=true");
         }
 
 

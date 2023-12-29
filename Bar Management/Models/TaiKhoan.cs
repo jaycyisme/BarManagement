@@ -34,5 +34,7 @@ namespace Bar_Management.Models {
 
         [ForeignKey("SettingId")]
         public Setting Setting { get; set; }
+        public IEnumerable<DatBanTruoc> DatBanTruocs { get; set; }
+        public IEnumerable<HoaDon> HoaDons { get; set; }
     }
 }

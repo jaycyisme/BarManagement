@@ -28,5 +28,7 @@ namespace Bar_Management.Models {
 
         [Required]
         public decimal ThanhTien { get; set; }
+       
+
     }
 }

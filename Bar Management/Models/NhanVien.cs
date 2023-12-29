@@ -31,5 +31,6 @@ namespace Bar_Management.Models {
 
         [DefaultValue(0)]
         public decimal Luong { get; set; }
+        public TaiKhoan TaiKhoan { get; set; }
     }
 }

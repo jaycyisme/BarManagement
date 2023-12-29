@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace Bar_Management.Models {
     public class MonAn {
@@ -35,5 +36,7 @@ namespace Bar_Management.Models {
 
         [MaxLength(100)]
         public string MoTa { get; set; }
+        public IEnumerable<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public IEnumerable<CongThuc> CongThucs { get; set; }
     }
 }
