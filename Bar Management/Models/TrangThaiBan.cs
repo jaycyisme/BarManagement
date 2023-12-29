@@ -13,6 +13,5 @@ namespace Bar_Management.Models {
         [Required]
         [MaxLength(20)]
         public string Ten { get; set; }
-        public IEnumerable<Ban> Bans { get; set; } = Enumerable.Empty<Ban>();
     }
 }

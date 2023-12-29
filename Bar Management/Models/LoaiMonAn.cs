@@ -13,6 +13,5 @@ namespace Bar_Management.Models {
         [Required]
         [MaxLength(50)]
         public string TenLoai { get; set; }
-        public IEnumerable<MonAn> MonAns { get; set; }
     }
 }

@@ -34,6 +34,10 @@ namespace Bar_Management.Models {
         [ForeignKey("TrangThaiId")]
         public TrangThaiTonKho TrangThai { get; set; }
 
+        [DefaultValue(1)]
+        public int NhaCungCapId { get; set; }
+        [ForeignKey("NhaCungCapId")]
+        public NhaCungCap NhaCungCap { get; set; }
         [Required]
         public DateTime NgayNhap { get; set; }
 

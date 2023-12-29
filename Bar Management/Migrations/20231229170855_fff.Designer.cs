@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bar_Management.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231229154416_initial")]
-    partial class initial
+    [Migration("20231229170855_fff")]
+    partial class fff
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -436,7 +436,7 @@ namespace Bar_Management.Migrations
                     b.Property<int>("NguyenLieuId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("NhaCungCapId")
+                    b.Property<int>("NhaCungCapId")
                         .HasColumnType("int");
 
                     b.Property<int>("SoLuong")
@@ -493,7 +493,7 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.Ban", b =>
                 {
                     b.HasOne("Bar_Management.Models.TrangThaiBan", "TrangThai")
-                        .WithMany("Bans")
+                        .WithMany()
                         .HasForeignKey("TrangThaiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -502,13 +502,13 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.ChiTietHoaDon", b =>
                 {
                     b.HasOne("Bar_Management.Models.HoaDon", "HoaDon")
-                        .WithMany("ChiTietHoaDons")
+                        .WithMany()
                         .HasForeignKey("HoaDonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Bar_Management.Models.MonAn", "MonAn")
-                        .WithMany("ChiTietHoaDons")
+                        .WithMany()
                         .HasForeignKey("MonAnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -517,7 +517,7 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.CongThuc", b =>
                 {
                     b.HasOne("Bar_Management.Models.MonAn", "MonAn")
-                        .WithMany("CongThucs")
+                        .WithMany()
                         .HasForeignKey("MonAnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -532,13 +532,13 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.DatBanTruoc", b =>
                 {
                     b.HasOne("Bar_Management.Models.Ban", "Ban")
-                        .WithMany("DatBanTruocs")
+                        .WithMany()
                         .HasForeignKey("BanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Bar_Management.Models.TaiKhoan", "TaiKhoanDat")
-                        .WithMany("DatBanTruocs")
+                        .WithMany()
                         .HasForeignKey("TaiKhoanDatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -547,7 +547,7 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.HoaDon", b =>
                 {
                     b.HasOne("Bar_Management.Models.TaiKhoan", "TaiKhoanTao")
-                        .WithMany("HoaDons")
+                        .WithMany()
                         .HasForeignKey("TaiKhoanTaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -556,7 +556,7 @@ namespace Bar_Management.Migrations
             modelBuilder.Entity("Bar_Management.Models.MonAn", b =>
                 {
                     b.HasOne("Bar_Management.Models.LoaiMonAn", "LoaiMonAn")
-                        .WithMany("MonAns")
+                        .WithMany()
                         .HasForeignKey("LoaiMonAnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -569,30 +569,32 @@ namespace Bar_Management.Migrations
                         .HasForeignKey("Bar_Management.Models.TaiKhoan", "NhanVienId");
 
                     b.HasOne("Bar_Management.Models.Role", "Role")
-                        .WithMany("TaiKhoans")
+                        .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Bar_Management.Models.Setting", "Setting")
-                        .WithMany("TaiKhoans")
+                        .WithMany()
                         .HasForeignKey("SettingId");
                 });
 
             modelBuilder.Entity("Bar_Management.Models.TonKho", b =>
                 {
                     b.HasOne("Bar_Management.Models.NguyenLieu", "NguyenLieu")
-                        .WithMany("TonKhos")
+                        .WithMany()
                         .HasForeignKey("NguyenLieuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Bar_Management.Models.NhaCungCap", null)
-                        .WithMany("TonKhos")
-                        .HasForeignKey("NhaCungCapId");
+                    b.HasOne("Bar_Management.Models.NhaCungCap", "NhaCungCap")
+                        .WithMany()
+                        .HasForeignKey("NhaCungCapId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Bar_Management.Models.TrangThaiTonKho", "TrangThai")
-                        .WithMany("TonKhos")
+                        .WithMany()
                         .HasForeignKey("TrangThaiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

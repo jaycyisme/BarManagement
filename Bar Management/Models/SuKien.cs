@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bar_Management.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

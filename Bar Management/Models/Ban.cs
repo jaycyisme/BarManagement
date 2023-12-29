@@ -23,6 +23,5 @@ namespace Bar_Management.Models {
 
         [MaxLength(100)]
         public string GhiChu { get; set; }
-        public IEnumerable<DatBanTruoc> DatBanTruocs { get; set; }
     }
 }

@@ -25,7 +25,6 @@ namespace Bar_Management.Models {
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        public IEnumerable<TonKho> TonKhos{ get; set; }
 
     }
 }

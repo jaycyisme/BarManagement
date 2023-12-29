@@ -4,14 +4,16 @@ using Bar_Management.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bar_Management.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231229170420_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -434,9 +436,6 @@ namespace Bar_Management.Migrations
                     b.Property<int>("NguyenLieuId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NhaCungCapId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
 
@@ -446,8 +445,6 @@ namespace Bar_Management.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("NguyenLieuId");
-
-                    b.HasIndex("NhaCungCapId");
 
                     b.HasIndex("TrangThaiId");
 
@@ -582,12 +579,6 @@ namespace Bar_Management.Migrations
                     b.HasOne("Bar_Management.Models.NguyenLieu", "NguyenLieu")
                         .WithMany()
                         .HasForeignKey("NguyenLieuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Bar_Management.Models.NhaCungCap", "NhaCungCap")
-                        .WithMany()
-                        .HasForeignKey("NhaCungCapId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

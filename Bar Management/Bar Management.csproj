@@ -164,9 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AppDbContext.cs" />
+    <Compile Include="DAO\AppDbContextSingleton.cs" />
+    <Compile Include="DAO\BaseEntity.cs" />
     <Compile Include="DAO\GenericRepository.cs" />
     <Compile Include="DAO\IGenericRepository.cs" />
     <Compile Include="DAO\Result.cs" />
+    <Compile Include="DTO\SettingDto.cs" />
     <Compile Include="Interfaces\AccountForm\Account.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +224,18 @@
     <Compile Include="Interfaces\HomeForm\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\test1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\test1.Designer.cs">
+      <DependentUpon>test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\testSukien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\testSukien.Designer.cs">
+      <DependentUpon>testSukien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\WarehouseForm\Warehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,9 +284,13 @@
     <Compile Include="Interfaces\OrderHistoryForm\OrderHistory.Designer.cs">
       <DependentUpon>OrderHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20231229154416_initial.cs" />
-    <Compile Include="Migrations\20231229154416_initial.designer.cs">
-      <DependentUpon>20231229154416_initial.cs</DependentUpon>
+    <Compile Include="Migrations\20231229170420_initial.cs" />
+    <Compile Include="Migrations\20231229170420_initial.designer.cs">
+      <DependentUpon>20231229170420_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20231229170855_fff.cs" />
+    <Compile Include="Migrations\20231229170855_fff.designer.cs">
+      <DependentUpon>20231229170855_fff.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
     <Compile Include="Models\Ban.cs" />
@@ -305,6 +324,7 @@
     <Compile Include="Interfaces\TableForm\Table.Designer.cs">
       <DependentUpon>Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tool\DbContextStatic.cs" />
     <EmbeddedResource Include="Interfaces\AccountForm\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\HomeForm\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\test1.resx">
+      <DependentUpon>test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\testSukien.resx">
+      <DependentUpon>testSukien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\WarehouseForm\Warehouse.resx">
       <DependentUpon>Warehouse.cs</DependentUpon>
@@ -472,7 +498,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
-    <Folder Include="Tool\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

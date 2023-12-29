@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bar_Management.DAO {
     public interface IGenericRepository<T> where T : class{
-        Task<IEnumerable<T>> GetAll();
-        Task<T> GetById(object id);
-        Task<object> Insert(T obj);
-        Task<bool> Update(object id, T obj);
-        Task<Result> Delete(T obj);
+        IEnumerable<T> GetAll();
+        void GetById(object id);
+        object Insert(T obj);
+        bool Update(object id, T obj);
+        Result Delete(T obj);
     }
 }

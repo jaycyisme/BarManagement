@@ -36,7 +36,5 @@ namespace Bar_Management.Models {
 
         [MaxLength(100)]
         public string MoTa { get; set; }
-        public IEnumerable<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public IEnumerable<CongThuc> CongThucs { get; set; }
     }
 }

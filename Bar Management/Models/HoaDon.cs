@@ -25,6 +25,5 @@ namespace Bar_Management.Models {
 
         [Required]
         public int TrangThai { get; set; }
-        public IEnumerable<ChiTietHoaDon> ChiTietHoaDons { get; set; }
     }
 }

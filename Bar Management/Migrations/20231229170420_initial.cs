@@ -228,8 +228,7 @@ namespace Bar_Management.Migrations
                     GiaNhap = table.Column<decimal>(nullable: false),
                     TrangThaiId = table.Column<int>(nullable: false),
                     NgayNhap = table.Column<DateTime>(nullable: false),
-                    NgayHetHan = table.Column<DateTime>(nullable: false),
-                    NhaCungCapId = table.Column<int>(nullable: true)
+                    NgayHetHan = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -240,12 +239,6 @@ namespace Bar_Management.Migrations
                         principalTable: "NguyenLieus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TonKhos_NhaCungCaps_NhaCungCapId",
-                        column: x => x.NhaCungCapId,
-                        principalTable: "NhaCungCaps",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_TonKhos_TrangThaiTonKhos_TrangThaiId",
                         column: x => x.TrangThaiId,
@@ -431,11 +424,6 @@ namespace Bar_Management.Migrations
                 column: "NguyenLieuId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TonKhos_NhaCungCapId",
-                table: "TonKhos",
-                column: "NhaCungCapId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TonKhos_TrangThaiId",
                 table: "TonKhos",
                 column: "TrangThaiId");
@@ -451,6 +439,9 @@ namespace Bar_Management.Migrations
 
             migrationBuilder.DropTable(
                 name: "DatBanTruocs");
+
+            migrationBuilder.DropTable(
+                name: "NhaCungCaps");
 
             migrationBuilder.DropTable(
                 name: "SuKiens");
@@ -469,9 +460,6 @@ namespace Bar_Management.Migrations
 
             migrationBuilder.DropTable(
                 name: "NguyenLieus");
-
-            migrationBuilder.DropTable(
-                name: "NhaCungCaps");
 
             migrationBuilder.DropTable(
                 name: "TrangThaiTonKhos");
