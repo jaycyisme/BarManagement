@@ -1,20 +1,23 @@
-﻿using Bar_Management.DAO;
+﻿using Bar_Management.BusinessLogic;
+using Bar_Management.DAO;
 using Bar_Management.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Bar_Management.Interfaces {
     public partial class testSukien: Form {
-        private readonly AppDbContext _context;
-        private readonly BindingList<SuKien> _suKien;
+        private readonly BindingList<SuKien> _table;
+        private readonly SukienLogic _sukienLogic;
+
         public testSukien() {
-            _context = AppDbContextSingleton.Instance;
+            _sukienLogic = new SukienLogic();
             InitializeComponent();
-            _suKien = new BindingList<SuKien>(_context.SuKiens.AsNoTracking().ToList());
-            dataGridView1.DataSource = _suKien;
+            _table = new BindingList<SuKien>(_sukienLogic.GetAll().ToList());
+            dataGridView1.DataSource = _table;
         }
 
         private async void button1_Click(object sender, EventArgs e) {
@@ -23,14 +26,6 @@ namespace Bar_Management.Interfaces {
             if (selectedRow != null) {
                 SuKien sukien = new SuKien();
                 sukien.Id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
-
-
-                _context.SuKiens.Remove(sukien);
-                _context.SaveChanges();
-                dataGridView1.Rows.RemoveAt(selectedRow.Index);
-
-
-
             }
         }
 
@@ -49,12 +44,12 @@ namespace Bar_Management.Interfaces {
                 SuKien sukien = new SuKien();
                 sukien.Id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
 
-
-                _context.SuKiens.Remove(sukien);
-                _context.SaveChanges();
-                MessageBox.Show("dsss");
-                _suKien.Remove(sukien);
-                dataGridView1.Rows.RemoveAt(selectedRow.Index);
+                if (_sukienLogic.Delete(sukien)) {
+                    MessageBox.Show("dsss");
+                    _table.Remove(sukien);
+                    dataGridView1.Rows.RemoveAt(selectedRow.Index);
+                }
+                
 
             }
         }

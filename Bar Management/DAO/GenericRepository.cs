@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bar_Management.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,10 @@ namespace Bar_Management.DAO {
 
                 throw;
             }
+        }
+
+        public static implicit operator GenericRepository<T>(GenericRepository<Setting> v) {
+            throw new NotImplementedException();
         }
     }
 }

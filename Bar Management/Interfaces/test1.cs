@@ -1,4 +1,5 @@
-﻿using Bar_Management.DAO;
+﻿using Bar_Management.BusinessLogic;
+using Bar_Management.DAO;
 using Bar_Management.Models;
 using Bar_Management.Properties;
 using Microsoft.EntityFrameworkCore;
@@ -9,15 +10,14 @@ using System.Windows.Forms;
 
 namespace Bar_Management.Interfaces {
     public partial class test1: Form {
-        private readonly AppDbContext _context;
-        private readonly BindingList<Setting> _settings;
-        private readonly GenericRepository<Setting> _repo;
+        private readonly BindingList<Setting> _table;
+        private readonly SettingLogic _settingLogic;
         public test1() {
-            _context = AppDbContextSingleton.Instance;
-            _repo = new GenericRepository<Setting>();
+            _settingLogic = new SettingLogic();
             InitializeComponent();
-            _settings = new BindingList<Setting>(_repo.GetAll().ToList());
-            dataGridView1.DataSource = _settings;
+            _table = new BindingList<Setting>(_settingLogic.GetAll().ToList());
+            dataGridView1.DataSource = _table;
+            dataGridView1.Columns["Id"].Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
@@ -31,13 +31,11 @@ namespace Bar_Management.Interfaces {
                 Setting setting = new Setting();
                 setting.Id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
                 
-                if (_repo.Delete(setting)) {
+                if (_settingLogic.Delete(setting)) {
                     MessageBox.Show("dsss");
-                    _settings.Remove(setting);
+                    _table.Remove(setting);
                     dataGridView1.Rows.RemoveAt(selectedRow.Index);
                 }
-
-               
 
             }
         }
@@ -46,9 +44,9 @@ namespace Bar_Management.Interfaces {
             if (!String.IsNullOrEmpty(textBox1.Text)) {
                 var setting = new Setting();
                 setting.NgonNgu = textBox1.Text;
-                if (_repo.Update(setting)) {
+                if (_settingLogic.Update(setting)) {
                     MessageBox.Show("true");
-                    _settings.Add(setting);
+                    _table.Add(setting);
                 }
                 
             }
@@ -60,10 +58,14 @@ namespace Bar_Management.Interfaces {
 
         private void button3_Click(object sender, EventArgs e) {
             int id = int.Parse(dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString());
-            var settingCu = _context.Settings.SingleOrDefault(c => c.Id == id);
+            var settingCu = _settingLogic.GetAll().SingleOrDefault(c => c.Id == id);
             settingCu.NgonNgu = textBox1.Text;
-            if (_repo.Update(settingCu)) {
+            if (_settingLogic.Update(settingCu)) {
+                int index = dataGridView1.SelectedRows[0].Index;
                 MessageBox.Show("true");
+                _table.RemoveAt(index);
+                _table.Insert(index, settingCu);
+                dataGridView1.Rows[index].Selected = true;
             }
         }
 

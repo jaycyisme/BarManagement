@@ -163,6 +163,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\MonAnLogic.cs" />
+    <Compile Include="BusinessLogic\SettingLogic.cs" />
+    <Compile Include="BusinessLogic\SukienLogic.cs" />
     <Compile Include="DAO\AppDbContext.cs" />
     <Compile Include="DAO\AppDbContextSingleton.cs" />
     <Compile Include="DAO\GenericRepository.cs" />
@@ -495,7 +498,6 @@
     <None Include="Resources\warehouse.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogic\" />
     <Folder Include="Tool\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
