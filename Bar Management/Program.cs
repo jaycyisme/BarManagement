@@ -1,5 +1,4 @@
 ﻿using Bar_Management.Interfaces;
-using Bar_Management.Tool;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,6 @@ namespace Bar_Management
         [STAThread]
         static void Main()
         {
-            DbContextStatic dbContextStatic = new DbContextStatic();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new test1());

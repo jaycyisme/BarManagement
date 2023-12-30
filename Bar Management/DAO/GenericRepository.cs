@@ -1,54 +1,55 @@
-﻿using Bar_Management.Tool;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Metadata;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Bar_Management.DAO {
-    public class GenericRepository<T>: IGenericRepository<T> where T : class {
-        public readonly AppDbContext _appDbContext;
-        private DbSet < T > entities;
-        string errorMessage = string.Empty;
-
+    internal class GenericRepository<T>: IGenericRepository<T> where T : class{
+        private readonly DbSet<T> _set;
+        private readonly AppDbContext _context;
         public GenericRepository() {
-            _appDbContext = DbContextStatic.DbContext;
-            entities = _appDbContext.Set<T>();
+            _context = AppDbContextSingleton.Instance;
+            _set = _context.Set<T>();
         }
 
-        public Result Delete(T entity) {
-            if (entity == null) {
-                return new Result(){Message = "Du lieu trong"};
-            }
+        public bool Delete(T obj) {
             try {
-                entities.Remove(entity);
-                _appDbContext.SaveChanges();
-                return new Result() { IsSuccess=true};
-            } catch (Exception ex) {
+                _set.Remove(obj);
+                _context.SaveChanges(); 
+                return true;
+            } catch (Exception) {
 
-                return new Result() { Message = ex.Message };
+                throw;
             }
         }
 
         public IEnumerable<T> GetAll() {
-            return entities.AsEnumerable();
+            return _set.AsNoTracking().ToList();
         }
 
-        public void GetById(object id) {
+        public bool Insert(T obj) {
+            try {
+                _set.AddAsync(obj);
+                _context.SaveChanges();
+                return true;
+            } catch (Exception) {
+
+                throw;
+            }
         }
 
-        public object Insert(T obj) {
-             entities.AddAsync(obj);
-             _appDbContext.SaveChangesAsync();
-            return true;
-        }
+        public bool Update(T obj) {
+            try {
+                _set.Update(obj);
+                _context.SaveChanges();
+                return true;
+            } catch (Exception) {
 
-        public bool Update(object id, T objMoi) {
-            return true;
+                throw;
+            }
         }
     }
 }

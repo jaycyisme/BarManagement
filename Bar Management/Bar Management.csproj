@@ -165,7 +165,6 @@
   <ItemGroup>
     <Compile Include="DAO\AppDbContext.cs" />
     <Compile Include="DAO\AppDbContextSingleton.cs" />
-    <Compile Include="DAO\BaseEntity.cs" />
     <Compile Include="DAO\GenericRepository.cs" />
     <Compile Include="DAO\IGenericRepository.cs" />
     <Compile Include="DAO\Result.cs" />
@@ -324,7 +323,6 @@
     <Compile Include="Interfaces\TableForm\Table.Designer.cs">
       <DependentUpon>Table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tool\DbContextStatic.cs" />
     <EmbeddedResource Include="Interfaces\AccountForm\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
@@ -498,6 +496,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
+    <Folder Include="Tool\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
