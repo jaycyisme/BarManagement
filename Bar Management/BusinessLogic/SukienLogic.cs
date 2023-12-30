@@ -9,10 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
+
     public class SukienLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<SuKien> _repo;
+
         public SukienLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<SuKien>();
         }

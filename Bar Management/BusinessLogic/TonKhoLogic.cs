@@ -7,10 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
-    internal class TonKhoLogic {
+    public class TonKhoLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<TonKho> _repo;
+
         public TonKhoLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<TonKho>();
         }

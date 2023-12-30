@@ -163,15 +163,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\ChiTieHoaDonLogic.cs" />
+    <Compile Include="BusinessLogic\CongThucLogic.cs" />
+    <Compile Include="BusinessLogic\HoaDonLogic.cs" />
+    <Compile Include="BusinessLogic\LoaiMonAnLogic.cs" />
     <Compile Include="BusinessLogic\MonAnLogic.cs" />
+    <Compile Include="BusinessLogic\NguyenLieuLogic.cs" />
+    <Compile Include="BusinessLogic\NhaCungCapLogic.cs" />
     <Compile Include="BusinessLogic\SettingLogic.cs" />
     <Compile Include="BusinessLogic\SukienLogic.cs" />
+    <Compile Include="BusinessLogic\TonKhoLogic.cs" />
+    <Compile Include="BusinessLogic\TrangThaiTonKhoLogic.cs" />
     <Compile Include="DAO\AppDbContext.cs" />
     <Compile Include="DAO\AppDbContextSingleton.cs" />
     <Compile Include="DAO\GenericRepository.cs" />
     <Compile Include="DAO\IGenericRepository.cs" />
     <Compile Include="DAO\Result.cs" />
-    <Compile Include="DTO\SettingDto.cs" />
     <Compile Include="Interfaces\AccountForm\Account.cs">
       <SubType>Form</SubType>
     </Compile>

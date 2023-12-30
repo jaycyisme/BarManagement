@@ -7,10 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
-    internal class MonAnLogic {
+    public class MonAnLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<MonAn> _repo;
+
         public MonAnLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<MonAn>();
         }

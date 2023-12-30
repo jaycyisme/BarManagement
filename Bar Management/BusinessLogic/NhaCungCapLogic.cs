@@ -7,10 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
-    internal class NhaCungCapLogic {
+
+    public class NhaCungCapLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<NhaCungCap> _repo;
+
         public NhaCungCapLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<NhaCungCap>();
         }

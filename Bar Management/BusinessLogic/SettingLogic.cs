@@ -7,10 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
+
     public class SettingLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<Setting> _repo;
+
         public SettingLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<Setting>();
         }

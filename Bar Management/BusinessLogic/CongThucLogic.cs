@@ -7,10 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
-    internal class CongThucLogic {
+    public class CongThucLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<CongThuc> _repo;
+
         public CongThucLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<CongThuc>();
         }

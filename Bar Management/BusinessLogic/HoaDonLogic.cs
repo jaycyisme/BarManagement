@@ -7,10 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bar_Management.BusinessLogic {
-    internal class HoaDonLogic {
+    public class HoaDonLogic {
+
         private readonly AppDbContext _context;
         private readonly GenericRepository<HoaDon> _repo;
+
         public HoaDonLogic() {
+
             _context = AppDbContextSingleton.Instance;
             _repo = new GenericRepository<HoaDon>();
         }
